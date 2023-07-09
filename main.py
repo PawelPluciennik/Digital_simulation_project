@@ -1,35 +1,39 @@
-import time
-from User.User import User
-from Queue.Queue import Queue
-from Tree.Tree import Tree
+from Simulator.MainLoop import MainLoop
+from Simulator.SimulationVariables import SimulationVariables
 
-stationA = Queue()
-stationB = Queue()
+# main_loop = []
+# if __name__ == "__main__":
+#     for i in range(10):
+#         SimulationVariables.choice = i+1
+#
+#         SimulationVariables.a = 5
+#
+#         SimulationVariables.l = 0.0007
+#
+#
+#         print('Started Simulation')
+#         main_loop.append(MainLoop())
+#         main_loop[i].run(300)
+#
+#         SimulationVariables.a = 0
+#         SimulationVariables.l = 0
+#         SimulationVariables.queue = 0
+#         SimulationVariables.suddenDisconnectionCounter = 0
+#         SimulationVariables.disconnected = 0
+#         SimulationVariables.handOverCounter = 0
+#         SimulationVariables.choice = 0
 
-tree1 = Tree()
-user1 = User(1, 1, 1)
 
+if __name__ == "__main__":
+    print('Enter seed folder:')
+    SimulationVariables.choice = input()
 
-def generate_id():
-    # Get the current time in seconds
-    current_time = int(time.time())
+    print('Enter alpha:')
+    SimulationVariables.a = input()
 
-    # Convert to hexadecimal and add some padding
-    hex_id = hex(current_time)[2:].zfill(8)
+    print('Enter lambda:')
+    SimulationVariables.l = input()
 
-    return current_time
-
-while 1 != 0:
-    # user1 = User(1, 2, 3)
-    # user2 = User(3, 4, 5)
-
-    # print(user1.id)
-    # tree1.add(user1)
-    # tree1.add(user2)
-    # tree1.remove(user2.id)
-    # tree1.print_tree()
-    dupa = generate_id()
-
-    print(dupa)
-
-    time.sleep(0.1)
+    print('Started Simulation')
+    main_loop = MainLoop()
+    main_loop.run(200)
